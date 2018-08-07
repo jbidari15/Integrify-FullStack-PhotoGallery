@@ -2,6 +2,7 @@ const express = require("express"),
   app = express(),
   port = process.env.PORT || 3000,
   bodyParser = require("body-parser");
+path = require("path");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -10,9 +11,21 @@ app.use("/uploads", express.static("uploads"));
 const studentRoutes = require("./routes/students.js");
 app.use("/integrify/students", studentRoutes);
 
-app.get("/", (req, res) => {
-  res.send("This is the root route");
-});
+//serve static assets for production
+if (process.env.Node_ENV === "production") {
+  //set static folder
+  app.use(express.static("/integrify-gallery-front-end/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(
+      path.resolve(
+        __dirname,
+        "integrify-gallery-front-end",
+        "build",
+        "index.html"
+      )
+    );
+  });
+}
 
 app.listen(port, (req, res) => {
   console.log(`The server is running at port - ${port}`);

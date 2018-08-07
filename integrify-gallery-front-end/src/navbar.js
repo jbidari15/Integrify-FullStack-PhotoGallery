@@ -19,17 +19,26 @@ const NavBar = () => {
           <a
             href="https://www.facebook.com/integrify.fi/?ref=br_rs"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <i className="fab fa-facebook-f fa-2x" />
           </a>
         </div>
         <div className="icon">
-          <a href="https://twitter.com/integrify_fi?lang=en" target="_blank">
+          <a
+            href="https://twitter.com/integrify_fi?lang=en"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <i className="fab fa-twitter fa-2x" />
           </a>
         </div>
         <div className="icon">
-          <a href="https://www.instagram.com/integrify.fi/" target="_blank">
+          <a
+            href="https://www.instagram.com/integrify.fi/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <i className="fab fa-instagram fa-2x" />
           </a>
         </div>

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 class ShowStudentDetail extends Component {
   constructor(props) {
@@ -79,8 +78,7 @@ class ShowStudentDetail extends Component {
       longTermVision,
       motivatesMe,
       favoriteQuote,
-      joinedOn,
-      _id
+      joinedOn
     } = this.state.student;
 
     const skillsArray = skills.map((skill, i) => <li key={i}>{skill}</li>);

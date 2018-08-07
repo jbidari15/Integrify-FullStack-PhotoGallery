@@ -1,14 +1,6 @@
 import React, { Component } from "react";
 
-import {
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormText,
-  Col
-} from "reactstrap";
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 class AddStudent extends Component {
   constructor(props) {
@@ -58,6 +50,7 @@ class AddStudent extends Component {
               name="firstName"
               value={this.state.firstName}
               onChange={this.handleChange}
+              required
             />
           </FormGroup>
           <FormGroup>
@@ -69,6 +62,7 @@ class AddStudent extends Component {
               name="lastName"
               value={this.state.lastName}
               onChange={this.handleChange}
+              required
             />
           </FormGroup>
           <FormGroup>
@@ -102,6 +96,7 @@ class AddStudent extends Component {
               name="src"
               placeholder="Image"
               onChange={this.fileHandler}
+              required
             />
           </FormGroup>
           <FormGroup>

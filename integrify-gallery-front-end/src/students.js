@@ -18,7 +18,6 @@ class Students extends Component {
 
   componentDidMount() {
     this.loadStudents();
-    console.log(this.state.students);
   }
   loadStudents() {
     fetch(ApiUrl)
@@ -45,7 +44,6 @@ class Students extends Component {
   };
 
   render() {
-    console.log("These are the all students we have :", this.state.students);
     const allStudents = this.state.students.map(eachStudent => (
       <SingleStudent
         key={eachStudent._id}

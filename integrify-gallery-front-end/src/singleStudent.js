@@ -8,7 +8,7 @@ class SingleStudent extends Component {
   }
 
   render() {
-    const { firstName, lastName, src, skills, _id } = this.props.eachStudent;
+    const { firstName, lastName, src, _id } = this.props.eachStudent;
 
     return (
       <div className="col-lg-2 col-md-2 col-sm-2 col-xs-12">
