@@ -1,11 +1,20 @@
 const mongoose = require("mongoose");
 
 const studentSchema = new mongoose.Schema({
-  firstName: String,
-  lastName: String,
+  firstName: {
+    type: String,
+    required: true
+  },
+  lastName: {
+    type: String,
+    required: true
+  },
   title: String,
   nationality: String,
-  src: String,
+  src: {
+    type: String,
+    required: true
+  },
   alt: String,
   skills: [String],
   whySoftwareDeveloper: String,
