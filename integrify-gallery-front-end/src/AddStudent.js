@@ -1,5 +1,15 @@
 import React, { Component } from "react";
 
+import {
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  FormText,
+  Col
+} from "reactstrap";
+
 class AddStudent extends Component {
   constructor(props) {
     super(props);
@@ -9,9 +19,9 @@ class AddStudent extends Component {
       lastName: "",
       title: "",
       nationality: "",
-      src: "",
+      src: null,
       alt: "",
-      skills: [],
+      skills: "",
       whySoftwareDeveloper: "",
       longTermVision: "",
       motivatesMe: "",
@@ -25,99 +35,153 @@ class AddStudent extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+
+    this.props.addStudent(this.state);
+    e.target.reset();
+    this.props.history.push("/");
+  };
+
+  fileHandler = e => {
+    this.setState({ [e.target.name]: e.target.files[0] });
   };
 
   render() {
     return (
-      <div>
-        <div>Add Student here</div>
-        <form className="manageForm" onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            name="firstName"
-            placeholder="First Name"
-            value={this.state.firstName}
-            onChange={this.handleChange}
-          />
-          <input
-            type="text"
-            name="lastName"
-            placeholder="Last Name"
-            value={this.state.lastName}
-            onChange={this.handleChange}
-          />
-          <input
-            type="text"
-            name="title"
-            placeholder="Title"
-            value={this.state.title}
-            onChange={this.handleChange}
-          />
-          <input
-            type="text"
-            name="nationality"
-            placeholder="Nationality"
-            value={this.state.nationality}
-            onChange={this.handleChange}
-          />
-          <input
-            type="file"
-            name="src"
-            placeholder="Image"
-            value={this.state.src}
-            onChange={this.handleChange}
-          />
-          <textarea
-            name="skills"
-            cols="10"
-            rows="3"
-            placeholder="What are your skills?"
-            value={this.state.skills}
-            onChange={this.handleChange}
-          />
-          <textarea
-            name="whySoftwareDeveloper"
-            cols="30"
-            rows="10"
-            placeholder="Why do you want to be software Developer"
-            value={this.state.whySoftwareDeveloper}
-            onChange={this.handleChange}
-          />
-          <textarea
-            name="longTermVision"
-            cols="10"
-            rows="3"
-            placeholder="What are your long term visions?"
-            value={this.state.longTermVision}
-            onChange={this.handleChange}
-          />
-          <textarea
-            name="motivatesMe"
-            cols="10"
-            rows="3"
-            placeholder="What motivates you the most?"
-            value={this.state.motivatesMe}
-            onChange={this.handleChange}
-          />
-          <textarea
-            name="favoriteQuote"
-            cols="10"
-            rows="3"
-            placeholder="Your Favourite Quote"
-            value={this.state.favoriteQuote}
-            onChange={this.handleChange}
-          />
-          <input
-            type="text"
-            name="joinedOn"
-            placeholder="Joined Date"
-            value={this.state.joinedOn}
-            onChange={this.handleChange}
-          />
+      <div className="formDiv">
+        <Form className="manageForm" onSubmit={this.handleSubmit}>
+          <FormGroup>
+            <Label for="firstName">First Name</Label>
 
-          <button>Submit</button>
-        </form>
+            <Input
+              type="text"
+              id="firstName"
+              name="firstName"
+              value={this.state.firstName}
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="lastName">Last Name</Label>
+
+            <Input
+              type="text"
+              id="lastName"
+              name="lastName"
+              value={this.state.lastName}
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="title">Title </Label>
+
+            <Input
+              type="text"
+              id="title"
+              name="title"
+              value={this.state.title}
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="nationality">Nationality </Label>
+
+            <Input
+              type="text"
+              id="nationality"
+              name="nationality"
+              value={this.state.nationality}
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="src">File </Label>
+
+            <Input
+              type="file"
+              id="src"
+              name="src"
+              placeholder="Image"
+              onChange={this.fileHandler}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="skills">Skills</Label>
+            <Input
+              id="skills"
+              type="textarea"
+              name="skills"
+              cols="10"
+              rows="3"
+              value={this.state.skills}
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="whySoftwareDeveloper">
+              Why do you want to be software Developer?
+            </Label>
+            <Input
+              id="whySoftwareDeveloper"
+              type="textarea"
+              name="whySoftwareDeveloper"
+              cols="30"
+              rows="10"
+              value={this.state.whySoftwareDeveloper}
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="longTermVision">What are your long term visions?</Label>
+
+            <Input
+              id="longTermVision"
+              type="textarea"
+              name="longTermVision"
+              cols="10"
+              rows="3"
+              value={this.state.longTermVision}
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="motivatesMe">What motivates you the most?</Label>
+
+            <Input
+              id="motivatesMe"
+              type="textarea"
+              name="motivatesMe"
+              cols="10"
+              rows="3"
+              value={this.state.motivatesMe}
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="favoriteQuote">Your Favourite quote</Label>
+
+            <Input
+              id="favoriteQuote"
+              type="textarea"
+              name="favoriteQuote"
+              cols="10"
+              rows="3"
+              value={this.state.favoriteQuote}
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="joinedOn">Joined Date</Label>
+
+            <Input
+              id="joinedOn"
+              type="textarea"
+              name="joinedOn"
+              value={this.state.joinedOn}
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+          <Button className="submitButton">Submit</Button>{" "}
+        </Form>
       </div>
     );
   }

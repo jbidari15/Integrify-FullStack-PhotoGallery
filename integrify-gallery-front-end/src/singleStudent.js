@@ -1,13 +1,28 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
-const SingleStudent = props => {
-  const { firstName, lastName, skills } = props.eachStudent;
-  return (
-    <div>
-      <div className="ImageDiv">Image</div>
-      <span>{`${firstName} ${lastName}`}</span>
-    </div>
-  );
-};
+class SingleStudent extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const { firstName, lastName, src, skills, _id } = this.props.eachStudent;
+
+    return (
+      <div className="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+        <div className="img-thumbnail">
+          <Link to={`/integrify/students/${firstName}/${_id}`}>
+            <img src={src} alt={firstName} className="img-responsive" />
+          </Link>
+          <div className="caption">
+            <p>{`${firstName} ${lastName}`}</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
 
 export default SingleStudent;

@@ -5,6 +5,7 @@ const express = require("express"),
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use("/uploads", express.static("uploads"));
 
 const studentRoutes = require("./routes/students.js");
 app.use("/integrify/students", studentRoutes);
