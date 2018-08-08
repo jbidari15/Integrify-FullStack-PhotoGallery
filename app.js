@@ -10,15 +10,15 @@ app.use("/uploads", express.static("uploads"));
 
 const studentRoutes = require("./routes/students.js");
 app.use("/api/students", studentRoutes);
-app.use(express.static("integrify-gallery-front-end/build"));
-app.get("*", (req, res) =>
-  res.send(
-    path.join(__dirname, "/integrify-gallery-front-end/build/index.html")
-  )
-);
+// app.use(express.static("integrify-gallery-front-end/build"));
+// app.get("*", (req, res) =>
+//   res.send(
+//     path.join(__dirname, "/integrify-gallery-front-end/build/index.html")
+//   )
+// );
 
 //serve static assets for production
-if (process.env.Node_ENV === "production") {
+if (process.env.NODE_ENV === "production") {
   //set static folder
   app.use(express.static("/integrify-gallery-front-end/build"));
   app.get("*", (req, res) => {
