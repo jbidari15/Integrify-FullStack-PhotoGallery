@@ -57,7 +57,7 @@ class Students extends Component {
         <Switch>
           <Route
             exact
-            path="/ "
+            path="/"
             render={() => <Redirect to="/integrify/students" />}
           />
           <Route
