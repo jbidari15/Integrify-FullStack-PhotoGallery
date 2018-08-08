@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/uploads", express.static("uploads"));
 
 const studentRoutes = require("./routes/students.js");
-app.use("/integrify/students", studentRoutes);
+app.use("/api/students", studentRoutes);
 app.use(express.static("integrify-gallery-front-end/build"));
 app.get("*", (req, res) =>
   res.send(path.join(__dirname, "integrify-gallery-front-end/build/index.html"))

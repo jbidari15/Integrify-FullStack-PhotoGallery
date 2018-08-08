@@ -7,13 +7,13 @@ import AllStudents from "./allStudents";
 import { Route, Switch, Redirect } from "react-router-dom";
 import ShowStudentDetail from "./showStudentDetail";
 
-const ApiUrl = "/integrify/students";
+const ApiUrl = "/api/students";
 
 class Students extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { students: [], specificStudent: 0 };
+    this.state = { students: [] };
   }
 
   componentDidMount() {
@@ -57,7 +57,7 @@ class Students extends Component {
         <Switch>
           <Route
             exact
-            path="/"
+            path="/ "
             render={() => <Redirect to="/integrify/students" />}
           />
           <Route
