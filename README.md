@@ -14,7 +14,7 @@ Live demo [here](https://integrify-gallery.herokuapp.com/integrify/students)
 * [Express](https://expressjs.com/)
 * [Mongoose](https://mongoosejs.com/)
 * Cloudinary(for hosting images)
-* mLab is used for storing all students' data.
+* mLab is used for storing all student's data.
 
 ### Prerequisites
 
