@@ -60,7 +60,7 @@ router.get("/:studentId", (req, res) => {
 });
 
 router.put("/:studentId", (req, res) => {
-  db.Student.findOneAndUpdate({ _id: req.params.studentId }, req.body, {
+  db.Student.findOneAndUpdate({ id: req.params.studentId }, req.body, {
     new: true
   })
     .then(updatedStudent => {
@@ -72,7 +72,7 @@ router.put("/:studentId", (req, res) => {
 });
 
 router.delete("/:studentId", (req, res) => {
-  db.Student.remove({ _id: req.params.studentId })
+  db.Student.remove({ id: req.params.studentId })
     .then(() => {
       res.send({ message: "The student is deleted from the database" });
     })

@@ -7,6 +7,4 @@ mongoose
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
-mongoose.Promise = Promise;
-
 module.exports.Student = require("./student");
