@@ -1,5 +1,4 @@
 # Full Stack Photo Gallery
-Live demo [here](https://integrify-gallery.herokuapp.com/integrify/students)
 
 * Users can: 
   - View all students on Home page.
